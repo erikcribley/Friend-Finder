@@ -4,20 +4,14 @@ let path = require("path")
 
 //express
 let app = express()
-let PORT = 3000
+let PORT = process.env.PORT || 3000
 
 //parsing
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-//routes
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "/app/public/home.html"))
-})
-
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "/app/public/survey.html"))
-})
+//routers
+let htmlRoutes = require("./app/routing/htmlRoutes.js")(app)
 
 //starts server
 app.listen(PORT, function() {
