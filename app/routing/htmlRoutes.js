@@ -2,8 +2,8 @@
 let express = require("express")
 let path = require("path")
 
+//set up router
 const htmlRouter = express.Router()
-
 htmlRouter
     .get('/', function (req, res) {
         res.sendFile(path.join(__dirname, "../public/home.html"))
@@ -12,4 +12,5 @@ htmlRouter
         res.sendFile(path.join(__dirname, "../public/survey.html"))
     })
 
+//export router
 module.exports = htmlRouter
