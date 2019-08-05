@@ -3,8 +3,8 @@ let express = require("express")
 let path = require("path")
 
 //set up router
-const htmlRouter = express.Router()
-htmlRouter
+const htmlRoutes = express.Router()
+htmlRoutes
     .get('/', function (req, res) {
         res.sendFile(path.join(__dirname, "../public/home.html"))
     })
@@ -13,4 +13,4 @@ htmlRouter
     })
 
 //export router
-module.exports = htmlRouter
+module.exports = htmlRoutes
