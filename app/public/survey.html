@@ -11,9 +11,9 @@
         <h1>Hey Yo! It's Survey Time</h1>
         <form>
             <h2>Name (Required) </h2>
-                <input type="text" id="name">
+                <input type="text" class="valid" id="name">
             <h2>Link to Photo Image (Required) </h2>
-                <input type="text" id="photo">
+                <input type="text" class="valid" id="photo">
             <h3>Dr. Pepper is superior to Mr. Pibb in every way</h3>
                 <input type="radio" name="pepper-pibb" value ="5"> 5 (Strongly Agree) <br>
                 <input type="radio" name="pepper-pibb" value ="4"> 4 <br>
@@ -74,32 +74,57 @@
                 <input type="radio" name="invert" value="3"> 3 <br>
                 <input type="radio" name="invert" value="4"> 4 <br>
                 <input type="radio" name="invert" value="5"> 5 (Strongly Agree) <br> <br>
+                
             <button>Submit</button>
         </form>
         
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-        <!-- <script src="./../../server.js" async defer></script> -->
         <script type="text/javascript">
-                $("submit").on("click", function(event) {
+
+            $("#alert").hide()
+
+            // function verifyForm () {
+            //     let valid = true
+            //     $(".valid").each(function(){
+            //         if($("this").val() === "") {
+            //             valid = false
+            //         }
+            //     })
+            //     $("input[type=radio]").each(function(){
+            //         if($("this").attr("checked") !== "checked") {
+            //             valid = false
+            //         }
+            //     })
+            //     return valid
+            // }
+
+            $("button").on("click", function(event) {
                 event.preventDefault()
-                let surveyResults = {
-                    name: $("#name").val().trim(),
-                    photo: $("photo").val().trim(),
-                    scores: [
-                        $('input[name=pepper-pibb]:checked').val(),
-                        $('input[name=faygo]:checked').val(),
-                        $('input[name=pepsi-blue]:checked').val(),
-                        $('input[name=code-red]:checked').val(),
-                        $('input[name=taco-bell]:checked').val(),
-                        $('input[name=surge]:checked').val(),
-                        $('input[name=pop-hick]:checked').val(),
-                        $('input[name=soda-elitist]:checked').val(),
-                        $('input[name=sugar-water]:checked').val(),
-                        $('input[name=invert]:checked').val(),
-                    ]
-                }
-                console.log(surveyResults)
+                // if (verifyForm()) {
+                    let surveyResults = {
+                        name: $("#name").val().trim(),
+                        photo: $("#photo").val().trim(),
+                        scores: [
+                            $('input[name=pepper-pibb]:checked').val(),
+                            $('input[name=faygo]:checked').val(),
+                            $('input[name=pepsi-blue]:checked').val(),
+                            $('input[name=code-red]:checked').val(),
+                            $('input[name=taco-bell]:checked').val(),
+                            $('input[name=surge]:checked').val(),
+                            $('input[name=pop-hick]:checked').val(),
+                            $('input[name=soda-elitist]:checked').val(),
+                            $('input[name=sugar-water]:checked').val(),
+                            $('input[name=invert]:checked').val(),
+                        ]   
+                    }
+                    console.log(surveyResults)
+                    $.post("/api/friends", surveyResults, function(data) {
+                    })
+                // } else {
+                //     $("#alert").show()
+                // }        
             })
+
             
         </script>
     </body>
