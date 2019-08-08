@@ -11,9 +11,9 @@ htmlRoutes
     .get('/survey', function (req, res) {
         res.sendFile(path.join(__dirname, "../public/survey.html"))
     })
-    .get('*', function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/home.html"))
-    })
+    // .get('*', function (req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/home.html"))
+    // })
 
 //export router
 module.exports = htmlRoutes

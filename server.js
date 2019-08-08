@@ -2,7 +2,7 @@
 let express = require("express")
 let path = require("path")
 let htmlRoutes = require("./app/routing/htmlRoutes.js")
-let apiRoutes = require("./app/routing/apiRoutes")
+let apiRoutes = require("./app/routing/apiRoutes.js")
 
 //express
 let app = express()

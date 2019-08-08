@@ -5,7 +5,7 @@
         <title>FriendFinder! Find Friendly Friends with FriendFinder!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1>Hey Yo! It's Survey Time</h1>
@@ -74,14 +74,29 @@
                 <input type="radio" name="invert" value="3"> 3 <br>
                 <input type="radio" name="invert" value="4"> 4 <br>
                 <input type="radio" name="invert" value="5"> 5 (Strongly Agree) <br> <br>
-                
-            <button>Submit</button>
+            <p id="alert"> BE SURE TO FILL OUT SURVEY IN ITS ENTIRETY</p>              
+            <button type="submit" id="submit">Submit</button>
         </form>
-        
+
+        <div id="modal">
+            <div id="modal-content">
+                <h2>Your new best friend</h2>
+                <h3 id="friend-name"> </h3>
+                <img id="friend-img" src="" alt="photo of your new best friend">
+                <button id="close">CLOSE</button>
+            </div>
+        </div>
+
+
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script type="text/javascript">
 
+            $("#modal").hide()
             $("#alert").hide()
+            
+            $("#close").on("click", function () {
+                $("#modal").hide()
+            })
 
             // function verifyForm () {
             //     let valid = true
@@ -98,7 +113,7 @@
             //     return valid
             // }
 
-            $("button").on("click", function(event) {
+            $("#submit").on("click", function(event) {
                 event.preventDefault()
                 // if (verifyForm()) {
                     let surveyResults = {
@@ -119,6 +134,10 @@
                     }
                     console.log(surveyResults)
                     $.post("/api/friends", surveyResults, function(data) {
+                        console.log(data)
+                        // $("#friend-name").text(data.name)
+                        // $("#friend-img").attr("src", data.photo)
+                        // $("#modal").show()
                     })
                 // } else {
                 //     $("#alert").show()
