@@ -6,10 +6,13 @@ $.post("/api/friends", surveyResults, function(data) {
     console.log(data)
 }
 
-Attempts responded with 500 (Internal Service Error) jquery-3.4.1.js:9837, failing to load the line
+Attempts responded with 
+500 (Internal Service Error) jquery-3.4.1.js:9837, 
+failing to load the line
 xhr.send( options.hasContent && options.data || null );
 
 As as result, my attempt at the post from the router end was also unsuccessful 
+
     .post('/api/friends', function (req, res) {
         friends.push(req.body)
     })
