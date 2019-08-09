@@ -22,7 +22,7 @@ apiRoutes
 //export router
 module.exports = apiRoutes
 
-//attempt at comapring scores function
+//attempt at comparing scores function
 // let survey = {
 //     name: "me",
 //     photo: "picture.png",

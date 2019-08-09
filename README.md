@@ -28,3 +28,5 @@ I was able to correctly set up the router and htmlRoutes as well as the api GET 
 I also did a poor job making a modal without bootstrap and writing the functions to compare survey scores. I believe I could improve upon these with more time, however my vexation with the post errors pushed me far behind schedule.
 
 Also included is an abandoned attempt to make sure the survey results would not post unless all fields were filled, out. It was not functional, I intend to return to it after getting the post methods to work.
+
+UPDATE: The jQuery 500 error only happends in Chrome, so whatever else isn't working is unrelated to that
