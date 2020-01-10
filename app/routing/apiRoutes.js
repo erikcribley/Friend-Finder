@@ -1,13 +1,13 @@
 //dependencies
 let express = require("express")
 let path = require("path")
-let friends = require("./../data/friends.js")
+let friends = require("../data/friends")
 
-// let app = express()
+let app = express()
 
-// //parsing
-// app.use(express.urlencoded({ extended: true }))
-// app.use(express.json())
+//parsing
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 //set up router
 const apiRoutes = express.Router()
